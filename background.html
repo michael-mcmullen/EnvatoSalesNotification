@@ -20,16 +20,16 @@
 			chrome.browserAction.onClicked.addListener(function(tab) {
 				// clear the sales count
 				count_sales = 0;
-				chrome.browserAction.setBadgeText({text: '' + count_sales});
+				chrome.browserAction.setBadgeText({text: ''});
 				chrome.browserAction.setTitle({title: 'no new sales'});
 				
 				// Set Notification Display to True (so we can do it)
 				send_notification = true;
 					
 				// Check for home page
-				if(!envato_home){ envato_home = "http://envato.com/" }
+				if(!envato_home){ envato_home = "options.html" }
 				// Open new tab
-				chrome.tabs.create({url: envato_home});
+				chrome.tabs.create({url: envato_home + 'user/' + envato_username + '/statement'});
 			});
 			
 			function polling() {
@@ -57,7 +57,7 @@
 					chrome.browserAction.setTitle({title: 'check options'});
 					chrome.browserAction.setBadgeText({text: '?'});
 				} else {
-					chrome.browserAction.setBadgeText({text: '' + count_sales});
+					chrome.browserAction.setBadgeText({text: '' + (count_sales ? count_sales : '')});
 					chrome.browserAction.setTitle({title: 'no new sales'});
 				}
 				
@@ -91,12 +91,15 @@
 				
 				var recent = res["recent-sales"];
 				
+				var notification_bodies = [];
+				
 				for(var i = recent.length -1; i > 0; i--) {
 					item_date = Date.parse(recent[i].sold_at);
 					
 					if(item_date > envato_sale) {
 						storeSaleDate(recent[i].sold_at);
 						count_sales ++;
+						notification_bodies.push(recent[i].item + ' ($' + recent[i].amount + ')');
 					}
 				}
 				
@@ -112,14 +115,14 @@
 						var notification = webkitNotifications.createNotification(
 					  	'images/Money_48.png',  // icon url - can be relative
 					  	'New Sales',  // notification title
-					  	'A new sale has occured!' // notification body text
+					  	notification_bodies.join('; ')
 						);
 						
 						// Then show the notification.
 						notification.show();
 					}
 				} else {
-					chrome.browserAction.setBadgeText({text: '' + count_sales});
+					chrome.browserAction.setBadgeText({text: ''});
 					chrome.browserAction.setTitle({title: 'no new sales'});
 				}
 			}
