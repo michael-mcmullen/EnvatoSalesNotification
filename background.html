@@ -91,12 +91,15 @@
 				
 				var recent = res["recent-sales"];
 				
+				var notification_bodies = [];
+				
 				for(var i = recent.length -1; i > 0; i--) {
 					item_date = Date.parse(recent[i].sold_at);
 					
 					if(item_date > envato_sale) {
 						storeSaleDate(recent[i].sold_at);
 						count_sales ++;
+						notification_bodies.push(recent[i].item + ' ($' + recent[i].amount + ')');
 					}
 				}
 				
@@ -112,7 +115,7 @@
 						var notification = webkitNotifications.createNotification(
 					  	'images/Money_48.png',  // icon url - can be relative
 					  	'New Sales',  // notification title
-					  	'A new sale has occured!' // notification body text
+					  	notification_bodies.join('; ')
 						);
 						
 						// Then show the notification.
