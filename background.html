@@ -20,7 +20,7 @@
 			chrome.browserAction.onClicked.addListener(function(tab) {
 				// clear the sales count
 				count_sales = 0;
-				chrome.browserAction.setBadgeText({text: '' + count_sales});
+				chrome.browserAction.setBadgeText({text: ''});
 				chrome.browserAction.setTitle({title: 'no new sales'});
 				
 				// Set Notification Display to True (so we can do it)
@@ -57,7 +57,7 @@
 					chrome.browserAction.setTitle({title: 'check options'});
 					chrome.browserAction.setBadgeText({text: '?'});
 				} else {
-					chrome.browserAction.setBadgeText({text: '' + count_sales});
+					chrome.browserAction.setBadgeText({text: '' + (count_sales ? count_sales : '')});
 					chrome.browserAction.setTitle({title: 'no new sales'});
 				}
 				
@@ -119,7 +119,7 @@
 						notification.show();
 					}
 				} else {
-					chrome.browserAction.setBadgeText({text: '' + count_sales});
+					chrome.browserAction.setBadgeText({text: ''});
 					chrome.browserAction.setTitle({title: 'no new sales'});
 				}
 			}
