@@ -27,9 +27,12 @@
 				send_notification = true;
 					
 				// Check for home page
-				if(!envato_home){ envato_home = "options.html" }
-				// Open new tab
-				chrome.tabs.create({url: envato_home + 'user/' + envato_username + '/statement'});
+				if (envato_home) {
+					chrome.tabs.create({url: envato_home + 'user/' + envato_username + '/statement'});
+				} else { // Home not set
+					// Open options
+					chrome.tabs.create({url: 'options.html'});
+				}
 			});
 			
 			function polling() {
