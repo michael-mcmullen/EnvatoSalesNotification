@@ -96,7 +96,7 @@
 				
 				var notification_bodies = [];
 				
-				for(var i = recent.length -1; i > 0; i--) {
+				for(var i = recent.length -1; i >= 0; i--) {
 					item_date = Date.parse(recent[i].sold_at);
 					
 					if(item_date > envato_sale) {
