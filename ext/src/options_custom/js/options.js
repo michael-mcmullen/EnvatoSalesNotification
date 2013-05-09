@@ -5,10 +5,10 @@ var envato_key			= localStorage["envato_key"];
 function main() {
 	console.log('Loading Settings');
 	
-	if(envato_username === 'undefined') {
+	if(envato_username !== 'undefined') {
 		document.getElementById('envato_username').value = envato_username;
 	}
-	if(envato_key === 'undefined') {
+	if(envato_key !== 'undefined') {
 		document.getElementById('envato_key').value = envato_key;
 	}
 	
