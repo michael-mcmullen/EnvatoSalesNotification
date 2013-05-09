@@ -1,6 +1,6 @@
 {
   "name": "Envato Sales Notifications",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "manifest_version": 2,
   "description": "This extension will send a notification to your screen when a sale has been made on the Envato Marketplaces",
   "homepage_url": "http://www.tutelagesystems.com",
