@@ -104,6 +104,9 @@ chrome.browserAction.onClicked.addListener(
   	if(debug)
 		console.log('Browser Action (Extension was clicked)');
 		
+		// Read the settings, so we don't have to wait 5 minutes
+		readSettings();
+		
     args = {
   	  'url': u_marketplace
   	};
