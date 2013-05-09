@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+        	Envate Sales Notifications
+        </title>
+        
+        <!-- Stylesheets -->
+        <link id="favicon" rel="icon" href="">
+        <link rel="stylesheet" href="css/default.css" media="screen">
+        
+        <!-- JavaScripts -->
+        <script type="text/javascript" src="js/options.js"></script>
+    </head>
+    <body>
+    	
+    		<ul>
+    			<li>
+    				<h2>
+    					Envato Sales Notifications - Settings
+    				</h2>
+    			</li>
+    			<li id="showSaved" style="display: none;">
+    				<h3 class="success">
+    					Your settings have been saved!
+    				</h3>
+    			</li>
+    			<li>
+    				<label for="envato_username">Envato Username:</label>
+    				<input name="envato_username" id="envato_username" placeholder="TutelageSystems" required>
+    			</li>
+    			<li>
+    				<label for="envato_key">Envato APIKey:</label>
+    				<input name="envato_key" id="envato_key" placeholder="" required>
+    			</li>
+    			<li>
+    				<label for="envato_notification">Allow Chrome Desktop Notifications:</label>
+    				<select name="envato_notification" id="envato_notification">
+    					<option value="1" selected>Yes</option>
+    					<option value="0">No</option>
+    				</select>
+    			</li>
+    			<li>
+    				<label for="envato_marketplace">Default Marketplace:</label>
+    				<select name="envato_marketplace" id="envato_marketplace">
+    					<option value="http://3docean.net/statement">3docean</option>
+    					<option value="http://activeden.net/statement">activeden</option>
+    					<option value="http://audiojungle.net/statement">audiojungle</option>
+    					<option value="http://codecanyon.net/statement">codecanyon</option>
+    					<option value="http://graphicriver.net/statement">graphicriver</option>
+    					<option value="http://photodune.net/statement">photodune</option>
+    					<option value="http://themeforest.net/statement">themeforest</option>
+    					<option value="http://videohive.net/statement">videohive</option>
+    				</select>
+    			</li>
+    			<li>
+    				<button class="submit">Save Settings</button>
+    			</li>
+    		</ul>
+    </body>
+</html>
