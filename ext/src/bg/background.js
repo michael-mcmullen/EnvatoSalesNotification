@@ -25,11 +25,11 @@ function readSettings() {
   // Grab Poll Information
   s_lastSaleDate = localStorage["s_lastSaleDate"];
   
-  if(s_lastSaleDate === 'undefined') {
+  if(s_lastSaleDate === 'undefined' || ! s_lastSaleDate) {
     s_lastSaleDate = Date.parse('June 02, 1983 12:00:00');
     saveSaleDate(s_lastSaleDate);
   }
-  if(u_marketplace === 'undefined') {
+  if(u_marketplace === 'undefined' || ! u_marketplace) {
   	u_marketplace = 'http://marketplace.envato.com';
   }
 }
