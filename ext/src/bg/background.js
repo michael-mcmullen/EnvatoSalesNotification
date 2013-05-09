@@ -27,6 +27,7 @@ function readSettings() {
   
   if(s_lastSaleDate === 'undefined') {
     s_lastSaleDate = Date.parse('June 02, 1983 12:00:00');
+    saveSaleDate(s_lastSaleDate);
   }
   if(u_marketplace === 'undefined') {
   	u_marketplace = 'http://marketplace.envato.com';
