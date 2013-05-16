@@ -79,7 +79,7 @@ function showNotification(items, cost) {
   var notification = webkitNotifications.createNotification(
       '../../icons/icon48.png',
       'New Envato Marketplace Sale!',
-      'Congratulations you sold the following items:\n\n' + items + '\n\nFor a total cost of: $' + parseFloat(cost)
+      'Congratulations you sold the following items:\n\n' + items + '\n\nFor a total cost of: $' + cost.toFixed(2)
   );
   
   notification.show();
@@ -147,7 +147,7 @@ function processRecentSales(){
 			saveSaleDate(item_date);
 			count_sales ++;
 			if(notification_content.length > 0) {
-			  notification_content = notification_content + '\n';
+			  notification_content = notification_content + ', ';
 			}
 			notification_content  = notification_content + recent[i].item;
 			total_amount          = total_amount + parseFloat(recent[i].amount);
